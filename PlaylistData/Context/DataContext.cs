@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using PlaylistDomain.Domain;
+using Playlist.Domain;
 
-namespace PlaylistData.Context
+namespace Playlist.Data.Context
 {
     public class DataContext : DbContext
     {
@@ -16,7 +16,7 @@ namespace PlaylistData.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Configuration.GetConnectionString("PlaylistData"));
+            optionsBuilder.UseSqlServer(Configuration.GetConnectionString("WebApiDatabase"));
         }
 
     }

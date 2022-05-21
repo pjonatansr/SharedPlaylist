@@ -1,8 +1,8 @@
-﻿using PlaylistApi.Interfaces;
-using PlaylistData.Context;
-using PlaylistDomain.Domain;
+﻿using Playlist.Domain.Interfaces;
+using Playlist.Data.Context;
+using Playlist.Domain;
 
-namespace PlaylistData.Repositories
+namespace Playlist.Data.Repositories
 {
     public class TrackProposalRepository : IRepository<TrackProposal>
     {

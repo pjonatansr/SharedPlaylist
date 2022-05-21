@@ -1,7 +1,6 @@
-﻿using PlaylistDomain.Domain;
-using PlaylistDomain.Domain.Input;
+﻿using Playlist.Domain.Input;
 
-namespace PlaylistApi.Interfaces
+namespace Playlist.Domain.Interfaces
 {
     public interface ITrackProposalService : IRabbitManager<TrackProposal>
     {

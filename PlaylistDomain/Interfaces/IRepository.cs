@@ -1,8 +1,7 @@
-﻿namespace PlaylistApi.Interfaces
+﻿namespace Playlist.Domain.Interfaces
 {
     public interface IRepository<T> where T : class
     {
-        // add save
         void Add(T target);
     }
 }

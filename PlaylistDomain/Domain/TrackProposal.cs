@@ -1,6 +1,6 @@
-﻿namespace PlaylistDomain.Domain
+﻿namespace Playlist.Domain
 {
-    public sealed class TrackProposal
+    public sealed class TrackProposal : RabbitMessage
     {
         public Guid? Id { get; set; }
         public Track Track { get; set; }
@@ -13,5 +13,9 @@
             Track = track;
         }
 
+        public override string GetMessage()
+        {
+            return System.Text.Json.JsonSerializer.Serialize(this);
+        }
     }
 }

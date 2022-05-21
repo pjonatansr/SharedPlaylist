@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PlaylistDomain\Playlist.Domain.csproj" />
+    <ProjectReference Include="..\PlaylistService\Playlist.Service.csproj" />
   </ItemGroup>
 
 </Project>

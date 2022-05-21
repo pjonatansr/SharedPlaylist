@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace PlaylistDomain.Domain.Input
+namespace Playlist.Domain.Input
 {
     public sealed class TrackProposalInput
     {

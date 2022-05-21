@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PlaylistDomain.Domain.Input;
-using PlaylistApi.Interfaces;
+using Playlist.Domain.Input;
+using Playlist.Domain.Interfaces;
 
 namespace PlaylistApi.Controllers
 {
@@ -23,6 +23,7 @@ namespace PlaylistApi.Controllers
         [Route("")]
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult Save([FromBody] TrackProposalInput trackProposal)
         {
             if (trackProposal == null)
@@ -31,8 +32,14 @@ namespace PlaylistApi.Controllers
                 return BadRequest();
             }
 
-            _trackProposalService.Save(trackProposal);
-            return Accepted(trackProposal);
+            try {
+                _trackProposalService.Save(trackProposal);
+                return Accepted(trackProposal);
+            } catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error saving track proposal");
+                return Problem();
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
-using Microsoft.Extensions.ObjectPool;
-using PlaylistApi.Configuration;
-using PlaylistApi.Interfaces;
-using PlaylistDomain.Services;
+using Playlist.Api.Extensions;
+using Playlist.Domain.Configuration;
+using Playlist.Domain.Interfaces;
+using Playlist.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,8 +18,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddRabbit(builder.Configuration);
 builder.Services.AddScoped<ITrackProposalService, TrackProposalService>();
-
 
 var app = builder.Build();
 
